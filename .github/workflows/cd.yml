@@ -36,3 +36,6 @@ jobs:
 
       - name: "Deploy to Artifact Registry"
         run: gcloud builds submit --tag europe-north1-docker.pkg.dev/cognitotest-464816/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image europe-north1-docker.pkg.dev/cognitotest-464816/notely-ar-repo/notely:latest --region europe-west1 --allow-unauthenticated --project cognitotest-464816 --max-instances=2
