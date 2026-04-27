@@ -35,4 +35,7 @@ jobs:
           version: ">= 363.0.0"
 
       - name: "Deploy to Artifact Registry"
-        run: gcloud builds submit --tag europe-north1-docker.pkg.dev/cognitotest-464816/notely-ar-repo/notely:latest .
+        run: gcloud builds submit \
+          --tag europe-north1-docker.pkg.dev/cognitotest-464816/notely-ar-repo/notely:latest \
+          --service-account="projects/cognitotest-464816/serviceAccounts/cloud-run-deployer@cognitotest-464816.iam.gserviceaccount.com" \
+          .
